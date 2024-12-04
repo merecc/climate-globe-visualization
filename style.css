@@ -1,0 +1,419 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: blue;
+  --padding: 10px;
+  --dark-text:#06155b;
+  --gallery-text:#8290dc;
+  --fun-font: "Carter One", system-ui;
+  --simple-font: "Manjari", sans-serif;
+  --modal-background: rgba(0, 0, 0, 0.5);
+  --button-hover-glow: rgba(173, 216, 230, 0.6);
+  --button-hover-shadow: rgba(255, 255, 255, 0.9);
+  --border-radius: 20%;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-image: radial-gradient(circle, #0022d5, #111cb4, #161793, #161274, #140d57, #100b4a, #0e073d, #0e0131, #0b0130, #08012f, #05002e, #02002d);
+}
+
+p {
+  color: var(--gallery-text);
+  font-family: var(--simple-font);
+}
+
+/* Containers */
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+}
+#earth {
+  display: flex;
+  flex-grow:1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  flex-grow: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+#iceMassContainer, #emissionsContainer {
+  width: 100%;
+  height: auto; 
+  margin-bottom: 20px; 
+}
+
+/* Top part for temp rising */
+#top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+#top h1 {
+  flex-grow: 1;
+  color: white;
+  white-space: nowrap;
+  text-align: center;
+  font-family: "Sour Gummy", sans-serif;
+  font-size: 3.25rem;
+  text-shadow: 4px 4px 5px rgb(255, 25, 240);
+  letter-spacing: 3px;
+  margin: 0;
+  padding: 3px;
+}
+
+/* Top part  for climate insight*/
+#header-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh; 
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+#header-block h1, #pageTitle {
+  text-align: center;
+  color: white;
+  width: 100%;
+}
+#header-block h1{
+  margin: 0 20px;
+  padding:0 20px;
+  font-size:1.5rem;
+  font-family: var(--simple-font);
+
+}
+#header-block h2 {
+  text-align: left;
+  font-size:.75rem;
+  font-family: var(--simple-font);
+  color: white;
+}
+
+/* Button Styles */
+#gallery-button, #learnMoreBtn, #close-gallery, .first-row button, .first-row select {
+  background-color: #f0f0f0;
+  color: var(--dark-text);
+  border: none;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 0.8rem;
+  font-family: var(--simple-font);
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+#gallery-button:hover, #learnMoreBtn:hover, #close-gallery:hover {
+  box-shadow: 0 0 10px var(--button-hover-glow), 0 0 20px var(--button-hover-shadow);
+  background-color: white;
+  transform: scale(1.1);
+}
+.top-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 20%;
+  flex-wrap: nowrap;
+}
+
+/* Slider */
+#slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  height: auto;
+}
+#yearSlider {
+  width: 30%;
+}
+#slider-value {
+  background: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: "Carter One", system-ui;
+  pointer-events: none;
+  white-space: nowrap;
+  text-shadow: 4px 4px 5px rgba(173, 216, 230, 0.6);
+}
+
+/* Globe Container */
+#globe-container {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 0;
+  padding-top: 0;
+}
+/* Gallery Modal */
+#gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--modal-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#gallery-modal.hidden {
+  display: none;
+}
+#gallery-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  text-align: center;
+  width: 70%;
+  max-width: 75%;
+  background-color: #ffffff;
+}
+#header-color {
+  display: flex;
+  background-color: #bdc6fb;
+  justify-content: stretch;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+}
+#close-gallery {
+  margin-left: auto;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  justify-content: flex-end;
+  background-color: #fff;
+  color: var(--dark-text);
+  border: 1px solid var(--dark-text);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+#gallery-image {
+  width: 95%;
+  padding: 20px;
+  border-radius: 20px;
+}
+#mover {
+  display: flex;
+  align-items: center;
+  margin-right: 15%;
+  gap:5px;
+}
+
+/* First Row */
+.first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.first-row #gallery-title {
+  text-align: center;
+  font-size: 2rem;
+  font-family: var(--simple-font);
+  color: var(--gallery-text);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  margin-left: 3%;
+}
+
+/* Arrow Button */
+.arrow-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  overflow: hidden;
+}
+
+.arrow-button span {
+  display: inline-block;
+  transition: transform 0.1s ease;
+}
+
+.arrow-button:hover span {
+  transform: scale(1.35);
+}
+
+/* Back Button */
+#backButton {
+  margin-right: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1000;
+}
+
+#backButton img {
+  width: 40px;
+}
+
+/* Chart Containers */
+#iceCharts, #emissionCharts {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 5px 0;
+}
+/* Wrapper for chart and description */
+.chart-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+#iceCharts canvas, #emissionCharts canvas {
+  flex: 1 1 calc(50% - 20px);
+  max-width: 48%;
+  max-height: 300px;
+  min-width: 280px;
+  height: auto;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+.chart-description {
+  color: #FFFFFF;
+  text-align: left;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  #iceCharts canvas, #emissionCharts canvas {
+    flex: 1 1 100%;
+    max-width: 100%;
+    max-height: 250px;
+  }
+  #top{
+    margin-top:20px;
+  }
+  .top-buttons {
+    width: 16%;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    margin-right: 2%;
+    margin-top: 5px;
+  }
+
+  #top h1 {
+    font-size: 1.5rem;
+  }
+
+  #gallery-button, #learnMoreBtn {
+    padding: 2px;
+    font-size: 0.55rem;
+    width: 100%;
+    letter-spacing: 0.4px;
+    border-radius: 4px;
+  }
+
+  #gallery-modal {
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
+  #gallery-content {
+    margin-top: 42%;
+    width: 95%;
+    max-width: 99%;
+  }
+
+  #gallery-image {
+    width: 98%;
+  }
+
+  .first-row #gallery-title {
+    font-size: 0.75rem;
+    text-align: start;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .first-row button, .first-row select {
+    font-size: 0.5rem;
+    padding: 2px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #top {
+    display: block;
+    position: relative;
+    height: 100px;
+  }
+
+  #top h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    margin: 0;
+  }
+
+  .top-buttons {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    display: flex;
+    gap: 10px;
+  }
+
+  #gallery-button, #learnMoreBtn {
+    padding: 5px 15px;
+    font-size: 0.9rem;
+  }
+  .chart-wrapper {
+    flex-direction: row;
+    align-items: flex-start; 
+  }
+
+  .chart-wrapper canvas {
+    flex: 2; 
+    max-width: 60%;
+  }
+
+  .chart-description {
+    flex: 1; 
+    max-width: 40%;
+    margin-left: 20px;
+  }
+}
+
+
+

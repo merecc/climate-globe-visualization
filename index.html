@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change</title>
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Manjari:wght@100;400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!--Import map for three.js-->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js",
+                "jsm/": "https://cdn.jsdelivr.net/npm/three@0.161/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+
+<body>
+        <!-- Container for entire content -->
+    <div id="container">
+        <!-- Top section with title and buttons -->
+        <div id="top">
+            <h1>Temperature Rising</h1>
+            <div class="top-buttons">
+                <button id="gallery-button">Gallery</button>
+                <button id="learnMoreBtn">Learn More</button>
+            </div>
+        </div>
+        <!-- Gallery Modal Section -->
+        <div id="gallery-modal" class="hidden">
+            <div id ="gallery-content">
+                <button id="close-gallery">X</button>
+                <div class="first-row">
+                    <h2 id ="gallery-title">Global Temperature Anomalies by Year</h2>
+                    <div id="mover">
+                        <button id="prev-year" class="arrow-button"><span>◀</span></button>
+                        <select id="year-dropdown"></select>
+                        <button id="next-year" class="arrow-button"><span>▶</span></button>
+                    </div>  
+                </div>
+                <img id="gallery-image" src="" alt="Temperature Layer with Scale">
+                <p>Global Temperature Anomalies by Year (Source: NASA GISTEMP Dataset, 2024)</p>
+            </div>
+        </div>
+        <!-- Globe Container with Slider -->
+        <div id= "earth">
+            <div id="slider-container">
+                <input type="range" id="yearSlider" min="1973" max="2024" value="1973">
+                <span id="slider-value">1973</span>
+            </div>
+            <div id="globe-container"></div>
+        </div> 
+    </div>
+    <!-- Header Block Section for Climate Insights -->
+    <div id="header-block" style="display: none;" >
+        <button id="backButton"><img src="./Textures/backarrow.jpg" alt="Back arrow"></button>
+        <h1 id="pageTitle">Climate and Environmental Insights</h1>
+        <div id="iceMassContainer">
+            <h2>Antarctic Ice Mass Change Over Time</h2>
+            <div id="iceCharts"></div> <!-- Container for ice mass charts -->
+        </div>
+        <div id="emissionsContainer">
+            <h2>Global Emissions</h2>
+            <div id="emissionCharts"></div> <!-- Container for emissions charts -->
+        </div>
+    </div>
+        
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
